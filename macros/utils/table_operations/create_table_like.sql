@@ -11,5 +11,5 @@
         FROM {{ like_relation }}
         WHERE 1 = 0
     {% endset %}
-    {% do elementary.run_query(dbt.create_table_as(temporary, relation, empty_table_query)) %}
+    {% do elementary.create_or_replace(temporary, relation, empty_table_query) %}
 {% endmacro %}

@@ -10,9 +10,9 @@
     {% set temp_table_relation = elementary.make_temp_table_relation(temp_table_relation) %}
     {% if temp_table_exists %}
         {% do adapter.drop_relation(temp_table_relation) %}
-        {% do elementary.run_query(dbt.create_table_as(True, temp_table_relation, sql_query)) %}
+        {% do elementary.create_or_replace(True, temp_table_relation, sql_query) %}
     {% else %}
-        {% do elementary.run_query(dbt.create_table_as(True, temp_table_relation, sql_query)) %}
+        {% do elementary.create_or_replace(True, temp_table_relation, sql_query) %}
     {% endif %}
     {{ return(temp_table_relation) }}{% endmacro %}
 

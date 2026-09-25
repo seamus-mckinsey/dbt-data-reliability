@@ -2,9 +2,21 @@
     {{ return(adapter.dispatch('create_or_replace', 'elementary')(temporary, relation, sql_query)) }}
 {% endmacro %}
 
-{# Snowflake and Bigquery #}
+{# Snowflake #}
 {% macro default__create_or_replace(temporary, relation, sql_query) %}
     {% do elementary.run_query(dbt.create_table_as(temporary, relation, sql_query)) %}
+{% endmacro %}
+
+{% macro bigquery__create_or_replace(temporary, relation, sql_query) %}
+    {# Backport Elementary 0.26's hook-safe CTAS: dbt's macro requires a model context in v2. #}
+    {% set create_query %}
+        create or replace table {{ relation }}
+        {% if temporary %}
+            options (expiration_timestamp=TIMESTAMP_ADD(CURRENT_TIMESTAMP(), INTERVAL 1 hour))
+        {% endif %}
+        as {{ sql_query }}
+    {% endset %}
+    {% do elementary.run_query(create_query) %}
 {% endmacro %}
 
 {% macro redshift__create_or_replace(temporary, relation, sql_query) %}
