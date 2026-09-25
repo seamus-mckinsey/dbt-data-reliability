@@ -1,0 +1,24 @@
+dbt_project.yml
+  h_773a9a7dede145 4
+integration_tests/dbt_project/tests/assert_bigquery__create_or_replace_works.sql
+  h_773a9a7dede145 1-30
+macros/utils/table_operations/create_or_replace.sql
+  h_773a9a7dede145 5,10-21
+macros/utils/table_operations/create_table_like.sql
+  h_773a9a7dede145 14
+macros/utils/table_operations/create_temp_table.sql
+  h_773a9a7dede145 13,15
+macros/utils/table_operations/replace_table_data.sql
+  h_773a9a7dede145 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "cce26a476004aa946816459a75c86771ac35704f",
+  "prompts": {},
+  "humans": {
+    "h_773a9a7dede145": {
+      "author": "Seamus McKinsey <seamus.mckinsey@color.com>"
+    }
+  }
+}
