@@ -1,0 +1,14 @@
+models/run_results.yml
+  h_773a9a7dede145 139-144
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9ad6c56e6bba8c2a921d05aa64693242979ea7d7",
+  "prompts": {},
+  "humans": {
+    "h_773a9a7dede145": {
+      "author": "Seamus McKinsey <seamus.mckinsey@color.com>"
+    }
+  }
+}
